@@ -9,4 +9,4 @@ AP A coding challenges
 * Main file that accesses all classes to simplify the testing process
 * nicer md file 
 
-!(http://d.ibtimes.co.uk/en/full/1396989/coding-national-curriculum-computing.jpg "Yippee!")
+![Alt text](http://d.ibtimes.co.uk/en/full/1396989/coding-national-curriculum-computing.jpg "Yippee!")
