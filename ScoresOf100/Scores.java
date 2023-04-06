@@ -1,4 +1,4 @@
-package ScoresAverage;
+package ScoresOf100;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
