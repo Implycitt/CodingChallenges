@@ -1,30 +1,43 @@
 package ScoresAverage;
 
-import java.io.File;
-import java.io.FileNotFoundException;
+import java.io.BufferedReader;
+import java.io.FileReader;
+
 import java.util.ArrayList;
-import java.util.Collection;
+import java.util.List;
 import java.util.Scanner;
 
 public class Scores {
     public static void main(String[] args) {
-        int i;
-    }
-
-    private static ArrayList<Integer> arr = new ArrayList<Integer>();
-
-    private static void readFile() {
         try {
-            File fin = new File("scores.in");
-            Scanner input = new Scanner(fin);
-            while (input.hasNextLine()) {
-                Collection<? extends Integer> data = input.nextLine();
-                arr.addAll(data);
-            }
-            input.close();
-        } catch (FileNotFoundException e) {
-            System.out.println("Error. File not found.");
+            List<Integer> arr = readIn();
+            System.out.println(score(arr));
+        } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    private static List<Integer> readIn() throws Exception {
+        Scanner input = new Scanner(new BufferedReader(new FileReader("scores.in")));
+        List<Integer> arr = new ArrayList<Integer>();
+        while (input.hasNextLine()) {
+            String[] line = input.nextLine().trim().split(" ");
+            for (int j = 0; j < line.length; j++) {
+                arr.add(Integer.parseInt(line[j]));
+            }
+        }
+    return arr;
+    }
+
+    private static boolean score(List<Integer> arr) {
+        for (int i = 0; i < arr.size()-1; i++) {
+            if (arr.get(i) == arr.size()-1) {
+                return false;
+            }
+            if (arr.get(i) == arr.get(i+1)) {
+                return true;
+            }
+        }
+        return false;
     }
 }
